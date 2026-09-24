@@ -1,0 +1,33 @@
+# Development Configuration for AI-ATS
+# This file contains settings optimized for development
+
+app:
+  name: "AI-ATS"
+  version: "0.1.0"
+  debug: true
+  environment: "development"
+
+database:
+  host: "localhost"
+  port: 27017
+  name: "ai_ats_dev"
+
+vector_store:
+  provider: "chromadb"
+  collection_name: "resume_embeddings_dev"
+
+ml:
+  # Use smaller/faster models for development
+  embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
+  spacy_model: "en_core_web_sm"  # Smaller model for faster loading
+  device: "cpu"
+  batch_size: 16
+
+ui:
+  theme: "light"
+  window_width: 1200
+  window_height: 800
+
+logging:
+  level: "DEBUG"
+  console_output: true

@@ -1,0 +1,33 @@
+# Production Configuration for AI-ATS
+# This file contains settings optimized for production deployment
+
+app:
+  name: "AI-ATS"
+  version: "0.1.0"
+  debug: false
+  environment: "production"
+
+database:
+  host: "localhost"
+  port: 27017
+  name: "ai_ats"
+
+vector_store:
+  provider: "chromadb"
+  collection_name: "resume_embeddings"
+
+ml:
+  # Use full-sized models for production
+  embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
+  spacy_model: "en_core_web_trf"
+  device: "auto"  # Auto-detect best available device
+  batch_size: 32
+
+ui:
+  theme: "system"
+  window_width: 1400
+  window_height: 900
+
+logging:
+  level: "INFO"
+  console_output: false
